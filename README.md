@@ -8,7 +8,7 @@ This article is constantly being updated and refined, and I plan to incorporate 
 ## 1. Hooks
 ### 1.1 useState (rules also can be implemented to setState)       
 - #### 1.1.1 <span id='jump-a-111'>async like setState</span>
-  - setState acts in a async way in React      
+  - setState acts in an asynchronous way in React      
   - #### Practice Questions: [16](#jump-q-16) 
 - #### 1.1.2 initial states     
   - For useState, the callback function we pass to it will only be called once during mounting (first time rendering).
