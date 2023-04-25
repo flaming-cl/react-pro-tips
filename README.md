@@ -8,7 +8,7 @@ This article is constantly being updated and refined, and I plan to incorporate 
 ## 1. Hooks
 ### 1.1 useState (rules also can be implemented to setState)       
 - #### 1.1.1 <span id='jump-a-111'>async like setState</span>
-  - setState acts in an asynchronous way in React      
+  - SetState acts in an asynchronous way in React      
   - #### Practice Questions: [16](#jump-q-16) 
 - #### 1.1.2 initial states     
   - For useState, the callback function we pass to it will only be called once during mounting (first time rendering).
@@ -35,7 +35,7 @@ This article is constantly being updated and refined, and I plan to incorporate 
   - #### Practice Questions: [13](#jump-q-13)   
 
 ### 1.4 useContext
-- #### 1.4.1 useContext and components re-render
+- #### 1.4.1 useContext and components re-render.
   - In React, if there is a tiny little change in the context provider, components sharing the same context will get re-rendered.
   - #### Practice Questions: [9](#jump-q-9)   
 
@@ -49,13 +49,13 @@ This article is constantly being updated and refined, and I plan to incorporate 
 ## 2. Performance
 ### 2.1 memo
 - #### 2.1.1 when memo fails
-  - Memo fails when its props changed
+  - Memo fails when its props changed.
   - #### **Practice Questions**: [11](#jump-q-11), [15](#jump-q-15)     
 
 ### 2.2 batching
 - #### 2.2.1 batched setState calls      
   - To avoid unnecessary re-renders, React groups multiple state updates into one single re-render.
-Before version 18, React does not batch updates outside React event handlers.     
+  - Before version 18, React does not batch updates outside React event handlers.     
   - #### Practice Questions: [5](#jump-q-5), [14](#jump-q-14)   
 
 ### 2.3 bailout
