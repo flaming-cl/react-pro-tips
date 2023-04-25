@@ -1,5 +1,5 @@
 # Pro Tips to Unleash the Power of React
-I've handpicked some representative React quizzes from bigfrontend.dev and compiled the key concepts they cover. I've also provided detailed explanation for each question I selected. 
+I've handpicked some representative React quizzes from bigfrontend.dev and compiled the key concepts they cover. 
 
 As a React developer, mastering the knowledge shared in this article will elevate your understanding of the framework, enabling you to develop more seamlessly. 
 
