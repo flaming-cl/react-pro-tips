@@ -1282,9 +1282,9 @@ B
 C
 D
 ```
-B and C were re-rendered because A's parent component re-rendered, resulting in a prop.children for A.   
+B and C were re-rendered because A's parent component re-rendered, resulting in a new prop.children for A (the reference value of props.children is changed).   
 
-Note: React uses shallow compare to detect whether the props are changed or not. So even if we have not see real changes made to props of A, React still considers that it has props changes.
+Note: React uses shallow comparison to detect whether props are changed or not. So even if we have not see real changes made to props of A, React still considers that it has props changes.
   
 </p>
 </details>
