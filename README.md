@@ -1450,7 +1450,7 @@ App 2
 React batches setState calls to avoid unnecessary re-rendering.
 
 #### 2. Background knowledge: setState (as well as useState hook setter) is a trigger of a series of underground React process 
-Before we explain why batching exists, let's introduce some background knowledge about why setState triggers a re-render. If you're new to React, you might think that using setState to modify state values simply means modifying data. However, when you call setState (or useState's setter function), this triggers a series of underlying operations in React, including reconciling changes to the component tree, marking changes, and commiting rendering. Therefore, setState is not just a data modification function; it's more like a trigger button for a series of underlying operations in React.
+Before we explain why batching exists, let's introduce some background knowledge about why setState triggers a re-render. If you're new to React, you might think that using setState to modify state values simply means modifying data. However, when you call setState (or useState's setter function), this triggers a series of underlying operations in React, including reconciling changes to the component tree, marking changes, and committing rendering. Therefore, setState is not just a data modification function; it's more like a trigger button for a series of underlying operations in React.
 
 #### 3. Why batching is needed
 So, without batching, the above code would trigger two rounds of underlying React operations unnecessarily. If you look closely at this code, you'll find that there's no need to perform two rounds of re-rendering; it's actually equivalent to this single rendering:
