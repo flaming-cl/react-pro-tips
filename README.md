@@ -1206,19 +1206,21 @@ B
 ```
 ## Explanation
 #### 1. When triggering setState in a component, it will cause this component and its child components to be re-rendered.         
-From the above code, we can see that when we trigger setState in component A, only component A will be re-rendered, which does not affect the parent component App of A, nor does it affect sibling component D.
+From the above code, we can see that when we trigger setState in component A, component A will be re-rendered, which does not affect the parent component App of A, nor does it affect sibling component D.
 
 #### 2. How to avoid child components from being re-rendered
 When A's child components are inherited from its parent component through children props, A's re-rendering will not cause the inherited children props components to be re-rendered.         
-Components C and D belong to A's props inherited from App. When A is re-rendered, App has not changed and A's props have not changed, so C and D components will not be rendered due to A's re-rendering. But why did B component, which is also A's props.children, re-render?
+Components C and D belong to A's props inherited from App. When A is re-rendered, App has not changed and A's props have not changed, so components C and D will not be rendered due to A's re-rendering. 
 
-#### 3. How to make children components inherited from props re-render
-When a component and its children inherited from props share a context, modifying the context in component A will cause all components that call the same context to be re-rendered.       
-This is why even if B component is inherited from A's props.children, because A and B share MyContext and A modifies MyContext, it causes B component to be re-rendered.
+But why did B component (which is also A's props.children) re-render?
+
+#### 3. Re-render and components that share the same context
+In fact, modifying MyContext in component A will cause all components that share the same context to re-render.       
+This is why even if B component is passed to A as props.children, its will re-renders as it shares the same context, "MyContext".
 
 #### 4. To test your understanding, you can take a look at this case:
 ```js
-  import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
 function A({ children }) {
@@ -1277,7 +1279,8 @@ B
 C
 D
 ```
-B and C were re-rendered because A's parent component re-rendered, resulting in a new object of props for A.   
+B and C were re-rendered because A's parent component re-rendered, resulting in a prop.children for A.   
+
 Note: React uses shallow compare to detect whether the props are changed or not. So even if we have not see real changes made to props of A, React still considers that it has props changes.
   
 </p>
