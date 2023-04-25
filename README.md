@@ -1216,7 +1216,7 @@ But why did B component (which is also A's props.children) re-render?
 
 #### 3. Re-render and components that share the same context
 In fact, modifying MyContext in component A will cause all components that share the same context to re-render.       
-This is why even if B component is passed to A as props.children, its will re-renders as it shares the same context, "MyContext".
+This is why even if B component is passed to A as props.children, its will re-renders as it shares the same context with A, "MyContext".
 
 #### 4. To test your understanding, you can take a look at this case:
 ```js
