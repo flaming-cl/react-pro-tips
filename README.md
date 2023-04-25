@@ -1205,17 +1205,20 @@ A
 B
 ```
 ## Explanation
-#### 1. When triggering setState in a component, it will cause this component and its child components to be re-rendered.         
+#### 1. When triggering setState in a component, it can cause this component and its child components to be re-rendered.  
+       
 From the above code, we can see that when we trigger setState in component A, component A will be re-rendered, which does not affect the parent component App of A, nor does it affect sibling component D.
 
-#### 2. How to avoid child components from being re-rendered
-When A's child components are inherited from its parent component through children props, A's re-rendering will not cause the inherited children props components to be re-rendered.         
-Components C and D belong to A's props inherited from App. When A is re-rendered, App has not changed and A's props have not changed, so components C and D will not be rendered due to A's re-rendering. 
+#### 2. Avoid re-rendering child components: props.children
+Since A's child components are inherited from its parent component through `props.children`, A's re-rendering will not cause the inherited children components to be re-rendered.       
+  
+For example, components C and D are passed to A's through App as A's props.children. When A is re-rendered, its props have not changed, so components C and D are not rendered. 
 
 But why did B component (which is also A's props.children) re-render?
 
 #### 3. Re-render and components that share the same context
 In fact, modifying MyContext in component A will cause all components that share the same context to re-render.       
+
 This is why even if B component is passed to A as props.children, its will re-renders as it shares the same context with A, "MyContext".
 
 #### 4. To test your understanding, you can take a look at this case:
