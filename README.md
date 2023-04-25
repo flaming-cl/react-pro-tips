@@ -1112,12 +1112,18 @@ A
 
 ## Explanation
 #### 1. Memo lets you skip re-rendering a component when its props are unchanged  
-Obviously, here `memo` does not memorize component `_A`, because `_A`’s props are changing.      
+Here `memo` does not memorize component `_A`, because `_A`’s props are changing.      
 Every time <code>App</code> is rendered, <code>onClick</code> corresponds to a new reference value for the function, causing <code>_A</code>’s props to change constantly and <code>memo</code> does not take effect. 
 
 #### 2. React uses shallow comparison to detect changes in props and state  
-Shallow comparison only checks the first layer of properties of an object. If the values of the properties referenced are the same, they are considered equal.     
-Every time `App` is rendered, <code>onClick</code> is given a new reference value, which leads to the problem mentioned earlier that <code>_A</code>’s props are constantly changing.
+Shallow comparison refers to the process of comparing the first layer of properties of two objects to determine if they are equal. In other words, it looks at the top-level properties of both objects without considering nested properties or structures within them.
+
+This explains why "every time <code>App</code> is rendered, <code>onClick</code> corresponds to a new reference value for the function".    
+When App is rendered, onClick is given a new reference value because the function is redefined within the component during each render cycle. This results in a new function reference being created, even if the function's contents remain the same.     
+ 
+Since a shallow comparison only checks the top-level properties and their references, it would consider the onClick functions in consecutive renders as different, even though their actual behavior is unchanged.      
+
+#### 3. How to fix this issue?
 ```
  function _A({ onClick }) {
   console.log('A');
